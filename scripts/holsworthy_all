@@ -1,0 +1,14 @@
+
+# -*- coding: utf-8 -*-
+#!/bin/bash
+#PBS -P xg9
+#PBS -q normal
+#PBS -l walltime=00:15:00,mem=128GB
+#PBS -l ncpus=16
+#PBS -l wd
+
+
+module use /g/data3/hh5/public/modules
+module load conda
+source activate new
+python CalcVSPI_113.py -s "all" -n "Holsworthy" --calc --NDVI --cores 16 --memory 128 --bbox 1720270 75 -3859435 75 | tee log_all_Holsworthy.txt
